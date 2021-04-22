@@ -1,0 +1,19 @@
+<resources>
+    <!-- Tema base (aqui só tira o actionbar). -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Costumizar o tema. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ThemeOverlay.search" parent="AppTheme">
+
+        <!-- cor do texto -->
+        <item name="android:editTextColor">@color/ColorWhite</item>
+        <!-- cor do hint -->
+        <item name="android:textColorHint">@color/ColorGray</item>
+
+    </style>
+
+</resources>
