@@ -143,7 +143,6 @@ class InfosActivity : AppCompatActivity() {
 
             }
         }catch (e: Exception){
-            Toast.makeText(this,"erro $e", Toast.LENGTH_LONG).show()
 
         }
 
@@ -167,6 +166,7 @@ class InfosActivity : AppCompatActivity() {
 
             }
         }catch (e: Exception){
+            Toast.makeText(this, "movimento inválido $e", Toast.LENGTH_SHORT).show()
 
         }
 

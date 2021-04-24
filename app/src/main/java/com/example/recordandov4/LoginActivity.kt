@@ -77,7 +77,7 @@ internal class LoginActivity: AppCompatActivity()  {
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Toast.makeText(this,"signInResult:failed codaea="+ e.getStatusCode(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"signInResult:failed code="+ e.getStatusCode(), Toast.LENGTH_SHORT).show()
 
         }
 

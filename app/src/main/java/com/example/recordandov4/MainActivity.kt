@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.example.recordandov4.entities.Infos
 import com.example.recordandov4.game.MainGame
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -25,7 +26,6 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        avisoEmer.visibility = View.GONE
 
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         if (acct != null) {
@@ -60,10 +60,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun abrirDiscador() {
         try {
-            val nomes = realm.where(Infos::class.java).findAll().last()
+            val tell = realm.where(Infos::class.java).findAll().last()
 
-            if (nomes!!.nome.isNullOrEmpty()) {
-                avisoEmer.visibility = View.VISIBLE
+            if (tell!!.tell2 == null) {
+
+
 
 
 
@@ -73,11 +74,16 @@ class MainActivity : AppCompatActivity() {
                 realm.beginTransaction()
 
                 val intent = Intent(Intent.ACTION_DIAL)
-                intent.data = Uri.parse("tel:" + nomes?.tell2)
+                intent.data = Uri.parse("tel:" + tell?.tell2)
+                realm.commitTransaction()
+
                 startActivity(intent)
             }
 
         }catch (e: Exception){
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:" + "192")
+            startActivity(intent)
 
         }
     }
