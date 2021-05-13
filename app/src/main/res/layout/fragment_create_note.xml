@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/fundomote3"
     tools:context=".MainActivityNotes">
 
     <ImageView
@@ -17,7 +17,7 @@
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/ColorWhite" />
+        app:tint="#000000" />
 
     <ImageView
         android:id="@+id/imgDone"
@@ -29,7 +29,7 @@
         android:src="@drawable/ic_tick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/ColorWhite" />
+        app:tint="#000000" />
 
 
     <EditText
@@ -44,8 +44,8 @@
         android:inputType="text"
         android:maxLines="1"
         android:padding="@dimen/_10sdp"
-        android:textColor="@color/ColorWhite"
-        android:textColorHint="@color/ColorGray"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         android:textSize="@dimen/_14ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,8 +64,8 @@
         android:fontFamily="@font/manrope_bold"
         android:maxLines="1"
         android:paddingStart="@dimen/_10sdp"
-        android:textColor="@color/ColorGray"
-        android:textColorHint="@color/ColorGray"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         android:textSize="@dimen/_8ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,8 +100,8 @@
             android:inputType="text"
             android:maxLines="1"
             android:padding="@dimen/_10sdp"
-            android:textColor="@color/ColorWhite"
-            android:textColorHint="@color/ColorGray"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             android:textSize="@dimen/_10ssp" />
     </LinearLayout>
 
@@ -245,8 +245,8 @@
         android:hint="@string/notes_desc"
         android:inputType="textMultiLine"
         android:padding="@dimen/_10sdp"
-        android:textColor="@color/ColorWhite"
-        android:textColorHint="@color/ColorGray"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -264,7 +264,8 @@
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_edit_24" />
+            android:src="@drawable/ic_baseline_edit_24"
+            app:tint="#000000"/>
     </FrameLayout>
 
 

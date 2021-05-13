@@ -2,13 +2,14 @@ package com.example.recordandov4
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import com.example.recordandov4.entities.Infos
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import io.realm.Realm
+import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 
 class InfosActivity : AppCompatActivity() {
@@ -17,8 +18,7 @@ class InfosActivity : AppCompatActivity() {
     private lateinit var telefoneI: EditText
     private lateinit var telefoneI2: EditText
     private lateinit var Iemail: EditText
-    private lateinit var saveInf: Button
-    private lateinit var deleteInf: Button
+    private lateinit var saveInf: ImageButton
     private lateinit var infoList: ArrayList<Infos>
     private lateinit var realm: Realm
 
@@ -39,17 +39,11 @@ class InfosActivity : AppCompatActivity() {
         telefoneI2 = findViewById(R.id.tellI)
         Iemail = findViewById(R.id.Iemail)
         saveInf = findViewById(R.id.saveInf)
-        deleteInf = findViewById(R.id.deleteInf)
-        updateInfos()
+
+       updateInfos()
 
 
 
-
-        deleteInf.setOnClickListener{
-            updateInfos()
-
-
-        }
         saveInf.setOnClickListener {
             saveInfos()
 
@@ -119,7 +113,7 @@ class InfosActivity : AppCompatActivity() {
                 val nomes = realm.where(Infos::class.java).findAll().last()
 
                 nomeI.hint = "Seu Nome:  " + nomes?.nome
-                idadeI.hint = "Sua Idade:  " + nomes?.idade
+                idadeI.hint = "Sua Idade:" + nomes?.idade
                 telefoneI.hint = "Seu telefone:  " + nomes?.tell
                 telefoneI2.hint = "Telefone de Emergência:  " + nomes?.tell2
                 Iemail.hint = "Seu Email:  " + nomes?.email
@@ -166,8 +160,18 @@ class InfosActivity : AppCompatActivity() {
 
             }
         }catch (e: Exception){
-            Toast.makeText(this, "movimento inválido $e", Toast.LENGTH_SHORT).show()
 
+            val acct = GoogleSignIn.getLastSignedInAccount(this)
+            if (acct != null) {
+
+                nomeI.hint = "Seu Nome:  " + acct.givenName
+                idadeI.hint = "Sua Idade:  "
+                telefoneI.hint = "Seu telefone:  "
+                telefoneI2.hint = "Telefone de Emergência:  "
+                Iemail.hint = "Seu Email:  " + acct.email
+
+
+            }
         }
 
     }

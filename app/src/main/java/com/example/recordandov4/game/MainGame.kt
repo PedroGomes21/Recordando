@@ -12,7 +12,7 @@ import com.example.recordandov4.R.drawable.*
 class MainGame : AppCompatActivity() {
 
     private lateinit var buttons: List<ImageButton>
-    private lateinit var reset: Button
+    private lateinit var reset: ImageButton
     private lateinit var cards: List<Cards>
     private var indexOfSingleSelectedCard: Int? = null
 
@@ -20,7 +20,7 @@ class MainGame : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_card)
 
-        val images = mutableListOf( ic_b, ic_c, ic_d, ic_e, ic_f, ic_g, ic_g, ic_tick)
+        val images = mutableListOf( card1, card2, card3, card4, card5, card6, card7, card8)
 
         images.addAll(images)
         images.shuffle()
@@ -30,7 +30,7 @@ class MainGame : AppCompatActivity() {
             imageButton6, imageButton7, imageButton8, imageButton9, imageButton10, imageButton11,
             imageButton12, imageButton13, imageButton15, imageButton17, imageButton18)
 
-        reset = findViewById(R.id.button2)
+        reset = findViewById(R.id.imageButtonR)
 
 
 
@@ -64,8 +64,9 @@ class MainGame : AppCompatActivity() {
             val button = buttons[index]
             if(card.isMatched){
                 button.alpha = 0.1f
+                button.setImageResource(card_2)
             }
-            button.setImageResource(if (card.isFaceUp) card.identifier else ic_s)
+            button.setImageResource(if (card.isFaceUp) card.identifier else card_2)
         }
     }
 

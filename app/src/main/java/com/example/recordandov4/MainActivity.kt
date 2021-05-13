@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         val acct = GoogleSignIn.getLastSignedInAccount(this)
         if (acct != null) {
-            nomeED.text = acct.displayName
+            nomeED.text = acct.givenName
+
         }
 
 
